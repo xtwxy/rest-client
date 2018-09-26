@@ -257,6 +257,7 @@ public class MainFrame extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
             response.setText(e.toString());
+            return;
         }
 
         try {
@@ -270,6 +271,7 @@ public class MainFrame extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
             response.setText(e.toString());
+            return;
         }
     }
 
@@ -277,6 +279,8 @@ public class MainFrame extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        System.setProperty("file.encoding", "UTF-8");
+        System.setProperty("sun.jnu.encoding", "UTF-8");
         /*
          * Set the Nimbus look and feel
          */
