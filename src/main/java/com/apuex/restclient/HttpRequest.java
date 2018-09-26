@@ -1,10 +1,6 @@
 package com.apuex.restclient;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -43,7 +39,7 @@ public class HttpRequest {
         if ("POST".equals(method) || "PUT".equals(method)) {
             connection.setDoOutput(true);
             OutputStream os = connection.getOutputStream();
-            PrintWriter pw = new PrintWriter(os);
+            PrintWriter pw = new PrintWriter(new OutputStreamWriter(os, DEFAULT_CHARSET));
             pw.print(body);
             pw.close();
             os.close();
